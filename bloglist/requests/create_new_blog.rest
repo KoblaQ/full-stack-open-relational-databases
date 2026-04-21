@@ -1,0 +1,83 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+	"title": "LinkedIn Profile",
+	"url": "https://www.linkedin.com/in/edemq/",
+	"userId": "690c6810b90d22de1ec8601c",
+	"author": "KoblaQ"
+}
+
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+	"title": "GitHub Profile",
+	"url": "https://github.com/KoblaQ",
+	"author": "KoblaQ",
+	"userId": "690c6810b90d22de1ec8601c"
+}
+
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+	"title": "Fullstack Open",
+	"url": "https://fullstackopen.com/en/",
+	"author": "Edem Q",
+	"userId": "6908eaef1f62ced4a92f6262"
+}
+
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer seyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IktvYmxhUSIsImlkIjoiNjkwYzY4MTBiOTBkMjJkZTFlYzg2MDFjIiwiaWF0IjoxNzYyNDQ5NTI1fQ.LnSP1ER2XWB_nbR5p8P-5oAyW61_LZ6VE0RN87xYaNc
+
+{
+	"title": "Token based blog",
+	"url": "https://fullstackopen.com/en/",
+	"author": "KoblaQ"
+}
+
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkVkZW1RIiwiaWQiOiI2OTA4ZWFlZjFmNjJjZWQ0YTkyZjYyNjIiLCJpYXQiOjE3NjI0NDk3NzV9.fNiaSFLfjWtgP_XC6sIrEucCezr_pmkkqYbgdnjcEVk
+
+{
+	"title": "Second User Token based blog",
+	"url": "https://fullstackopen.com/en/",
+	"author": "Edem Q"
+}
+
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlBla2thIiwiaWQiOiI2OTExY2ZhNDg0MjY0MDk0YzViMzUwOGQiLCJpYXQiOjE3NjI3NzUzOTJ9.d38IazeBffpXxXZ7pQO0UKQSyATre-otmMZmCumc1UY 
+
+{
+	"title": "Pekka's Journey with User Token based blog",
+	"url": "https://fullstackopen.com/en/"
+}
+
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlBla2thIiwiaWQiOiI2OTExY2ZhNDg0MjY0MDk0YzViMzUwOGQiLCJpYXQiOjE3NjI3Nzc2MDN9.b-FGqt09TU7TNIBnN3hN8HtYoyOrFlNUWflRXJYK-iE
+
+{
+	"title": "Pekka's Journey with middleware token extraction",
+	"url": "https://fullstackopen.com/en/"
+}
+
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlBla2thIiwiaWQiOiI2OTExY2ZhNDg0MjY0MDk0YzViMzUwOGQiLCJpYXQiOjE3NjI4MTE5MzV9.aVOM5GheUw0wsRqsGcfLUgFBgeN3hWgWXaNm89qeCYI
+
+{
+	"title": "DELETE THIS FROM Pekka only",
+	"url": "https://fullstackopen.com/en/"
+}

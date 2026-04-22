@@ -1,9 +1,10 @@
-POST http://localhost:3001/api/notes
+POST http://localhost:3001/api/blogs
 Content-Type: application/json
 
 {
-	"content": "New content with create",
-	"important": true
+	"title": "LinkedIn Profile",
+	"url": "https://www.linkedin.com/in/edemq/",
+	"author": "KoblaQ"
 }
 
 ###

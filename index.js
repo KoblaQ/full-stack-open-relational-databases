@@ -30,12 +30,22 @@ Blog.init(
 
 Blog.sync()
 
+// GET all blogs
 app.get('/api/blogs', async (req, res) => {
   const blogs = await Blog.findAll()
   console.log(JSON.stringify(blogs, null, 2))
-  // res.json(blogs)
-  // res.send('lol')
   res.json(blogs)
+})
+
+// POST a blog
+app.post('/api/blogs', async (req, res) => {
+  try {
+    console.log(req.body)
+    const blog = await Blog.create({ ...req.body })
+    return res.json(blog)
+  } catch (error) {
+    return res.status(400).json({ error })
+  }
 })
 
 const PORT = process.env.PORT || 3001

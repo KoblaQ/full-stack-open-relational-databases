@@ -6,18 +6,3 @@ Content-Type: application/json
 	"url": "https://www.linkedin.com/in/edemq/",
 	"author": "KoblaQ"
 }
-
-###
-POST http://localhost:3001/api/notes
-Content-Type: application/json
-
-{
-	"content": "New content with build"
-}
-
-###
-POST http://localhost:3001/api/notes
-Content-Type: application/json
-
-{
-}

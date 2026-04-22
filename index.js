@@ -48,6 +48,19 @@ app.post('/api/blogs', async (req, res) => {
   }
 })
 
+// DELETE blog by id
+app.delete('/api/blogs/:id', async (req, res) => {
+  const id = req.params.id
+
+  const blogToDelete = await Blog.findByPk(req.params.id)
+  if (blogToDelete) {
+    await Blog.destroy({ where: { id: id } })
+    return res.status(204).end()
+  } else {
+    return res.status(404).json({ error: 'blog not found' })
+  }
+})
+
 const PORT = process.env.PORT || 3001
 
 sequelize

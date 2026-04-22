@@ -1,0 +1,28 @@
+{
+  "name": "full-stack-open-relational-databases",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/KoblaQ/full-stack-open-relational-databases#readme",
+  "bugs": {
+    "url": "https://github.com/KoblaQ/full-stack-open-relational-databases/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KoblaQ/full-stack-open-relational-databases.git"
+  },
+  "license": "ISC",
+  "author": "Edem",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14",
+    "pg": "^8.20.0",
+    "sequelize": "^6.37.8"
+  }
+}

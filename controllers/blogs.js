@@ -2,6 +2,7 @@ const router = require('express').Router()
 
 const { Blog } = require('../models')
 
+// Blog Finding middleware
 const blogFinder = async (req, res, next) => {
   req.blog = await Blog.findByPk(req.params.id)
   if (!req.blog) {
@@ -17,6 +18,11 @@ router.get('/', async (req, res) => {
   res.json(blogs)
 })
 
+// GET blog by id
+router.get('/:id', blogFinder, async (req, res) => {
+  res.json(req.blog)
+})
+
 // POST a blog
 router.post('/', async (req, res) => {
   try {
@@ -26,6 +32,13 @@ router.post('/', async (req, res) => {
   } catch (error) {
     return res.status(400).json({ error })
   }
+})
+
+// UPDATE blog likes
+router.put('/:id', blogFinder, async (req, res) => {
+  req.blog.likes = req.body.likes
+  await req.blog.save()
+  res.json(req.blog)
 })
 
 // DELETE blog by id

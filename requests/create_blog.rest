@@ -7,3 +7,11 @@ Content-Type: application/json
 	"author": "KoblaQ"
 }
 
+###
+POST http://localhost:3001/api/blogs/8
+Content-Type: application/json
+
+{
+	"likes": 2
+}
+

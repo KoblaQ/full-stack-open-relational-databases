@@ -8,10 +8,18 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3001/api/blogs/8
+POST http://localhost:3001/api/blogs
 Content-Type: application/json
 
 {
-	"likes": 2
+	"hello": "world"
+}
+
+###
+PUT http://localhost:3001/api/blogs/8
+Content-Type: application/json
+
+{
+	"likes": 1
 }
 

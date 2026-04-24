@@ -37,7 +37,7 @@ router.get('/:id', blogFinder, async (req, res, next) => {
   }
 })
 
-// POST a blog
+// POST/Create a new blog
 router.post('/', async (req, res, next) => {
   try {
     console.log(req.body)

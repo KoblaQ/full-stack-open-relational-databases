@@ -1,0 +1,40 @@
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+	"username": "KoblaQ",
+	"name": "Kobla Quashigah"
+}
+
+###
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+	"username": "Ed",
+	"name": "Kobla Coder",
+	"password": "password"
+
+}
+
+###
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+	"username": "KoblaQ",
+	"name": "Kobla Coder",
+	"password": "password"
+
+}
+
+###
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+	"username": "Pekka",
+	"name": "Pekka Pekkonen",
+	"password": "password"
+
+}

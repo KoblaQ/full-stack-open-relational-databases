@@ -22,9 +22,9 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:3001/api/notes/3
+PUT http://localhost:3001/api/notes/1
 Content-Type: application/json
 
 {
-	"important": false
+	"userId": 2
 }

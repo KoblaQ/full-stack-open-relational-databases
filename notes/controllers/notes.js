@@ -17,7 +17,11 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const note = await Note.create({ ...req.body, date: new Date() })
+    const note = await Note.create({
+      ...req.body,
+      date: new Date(),
+      userId: user.id,
+    })
     res.json(note)
   } catch (error) {
     return res.status(400).json({ error })
@@ -35,6 +39,7 @@ router.delete('/:id', noteFinder, async (req, res) => {
 
 router.put('/:id', noteFinder, async (req, res) => {
   req.note.important = req.body.important
+  req.note.userId = req.body.userId
   await req.note.save()
   res.json(req.note)
 })

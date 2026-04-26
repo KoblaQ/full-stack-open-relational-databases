@@ -11,6 +11,7 @@ Content-Type: application/json
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
 
+
 {
 	"hello": "world"
 }
@@ -21,5 +22,17 @@ Content-Type: application/json
 
 {
 	"likes": 1
+}
+
+
+###
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkVkZW1RIiwiaWQiOjEsImlhdCI6MTc3NzIyNzEwM30.gza9i-fATPY1zZyMWJup2a_JT_kJvhTswhWtOW0gXks
+
+{
+	"title": "Token based blog",
+	"url": "https://www.linkedin.com/in/edemq/",
+	"author": "Edem Coder"
 }
 

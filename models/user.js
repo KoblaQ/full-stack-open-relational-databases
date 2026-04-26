@@ -19,6 +19,11 @@ User.init(
       type: DataTypes.STRING,
       unique: true,
       allowNull: false,
+      validate: {
+        isEmail: {
+          msg: 'username must be a valid email address', // Personalized error message for email validation
+        },
+      },
     },
     passwordHash: {
       type: DataTypes.STRING,

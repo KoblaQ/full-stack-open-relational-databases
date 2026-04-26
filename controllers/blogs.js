@@ -87,10 +87,14 @@ router.put('/:id', blogFinder, async (req, res, next) => {
 })
 
 // DELETE blog by id
-router.delete('/:id', blogFinder, async (req, res, next) => {
+router.delete('/:id', tokenExtractor, blogFinder, async (req, res, next) => {
   try {
-    await req.blog.destroy()
-    return res.status(204).end()
+    if (req.blog.userId === req.decodedToken.id) {
+      await req.blog.destroy()
+      return res.status(204).end()
+    } else {
+      return res.status(401).json({ error: 'Invalid user' })
+    }
   } catch (error) {
     next(error)
   }

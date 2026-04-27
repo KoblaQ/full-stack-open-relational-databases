@@ -10,9 +10,11 @@ router.post('/api/reset', async (req, res) => {
   try {
     await User.destroy({
       truncate: true,
+      cascade: true,
     })
     await Blog.destroy({
       truncate: true,
+      cascade: true,
     })
     return res.status(204).end()
   } catch (error) {

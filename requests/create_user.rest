@@ -2,8 +2,8 @@ POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-	"username": "Kafui@mail.com",
-	"name": "Fafa Quashigah",
+	"username": "edem@mail.com",
+	"name": "Edem Quashigah",
 	"password": "password"
 }
 
@@ -12,8 +12,8 @@ POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-	"username": "EdemQ",
-	"name": "Edem Quashigah",
+	"username": "kafui@mail.com",
+	"name": "Kafui Quashigah",
 	"password": "password"
 }
 

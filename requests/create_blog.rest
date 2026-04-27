@@ -28,10 +28,10 @@ Content-Type: application/json
 ###
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkVkZW1RIiwiaWQiOjEsImlhdCI6MTc3NzIyNzEwM30.gza9i-fATPY1zZyMWJup2a_JT_kJvhTswhWtOW0gXks
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImthZnVpQG1haWwuY29tIiwiaWQiOjIsImlhdCI6MTc3NzI4ODExMH0.mpPLNJAGkQwFEu44rg3Rqyer2WOm8WV_2qKj4v0_RMo
 
 {
-	"title": "Token based blog",
+	"title": "This blog is about react",
 	"url": "https://www.linkedin.com/in/edemq/",
 	"author": "Edem Coder"
 }

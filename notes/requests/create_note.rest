@@ -22,11 +22,12 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:3001/api/notes/1
+PUT http://localhost:3001/api/notes/6
 Content-Type: application/json
 
 {
-	"userId": 2
+	"content": "I like javascript",
+	"important": "true"
 }
 
 
@@ -36,6 +37,6 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IktvYmxhUSIsImlkIjoyLCJpYXQiOjE3NzcwNDU0NzZ9.KCNUo582HlE0k1CL1Kvi8vpdjrdduSkwUNiYlHxJnec
 
 {
-	"content": "Token based blog",
+	"content": "Postgresql is an open source database",
 	"important": true
 }

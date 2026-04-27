@@ -29,16 +29,45 @@ const tokenExtractor = (req, res, next) => {
   next()
 }
 
+// GET NOTES WITH QUERY PARAMETERS
+const { Op } = require('sequelize')
+
 router.get('/', async (req, res) => {
+  const where = {}
+
+  // let important = { [Op.in]: [true, false] }
+
+  if (req.query.important) {
+    where.important = req.query.important === 'true'
+  }
+
+  if (req.query.search) {
+    where.content = {
+      [Op.substring]: req.query.search,
+    }
+  }
+
   const notes = await Note.findAll({
     attributes: { exclude: ['userId'] },
     include: {
       model: User,
       attributes: ['name'],
     },
+    where,
   })
+
   res.json(notes)
 })
+// router.get('/', async (req, res) => {
+//   const notes = await Note.findAll({
+//     attributes: { exclude: ['userId'] },
+//     include: {
+//       model: User,
+//       attributes: ['name'],
+//     },
+//   })
+//   res.json(notes)
+// })
 
 router.post('/', tokenExtractor, async (req, res) => {
   try {
@@ -66,8 +95,11 @@ router.delete('/:id', noteFinder, async (req, res) => {
 router.put('/:id', noteFinder, async (req, res) => {
   req.note.important = req.body.important
   req.note.userId = req.body.userId
+  req.note.content = req.body.content
   await req.note.save()
   res.json(req.note)
 })
+
+// GET only important notes
 
 module.exports = router

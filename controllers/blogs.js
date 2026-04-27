@@ -4,6 +4,7 @@ const router = require('express').Router()
 const { Op } = require('sequelize')
 
 const { Blog, User } = require('../models')
+const { sequelize } = require('../util/db')
 
 // Blog Finding middleware
 const blogFinder = async (req, res, next) => {
@@ -63,6 +64,8 @@ router.get('/', async (req, res, next) => {
         attributes: ['name'],
       },
       where,
+      order: [['likes', 'DESC']],
+      // order: sequelize.col('likes'),
     })
     // console.log(JSON.stringify(blogs, null, 2))
     res.json(blogs)

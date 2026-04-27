@@ -4,7 +4,6 @@ const router = require('express').Router()
 const { Op } = require('sequelize')
 
 const { Blog, User } = require('../models')
-const { sequelize } = require('../util/db')
 
 // Blog Finding middleware
 const blogFinder = async (req, res, next) => {

@@ -3,7 +3,20 @@ Content-Type: application/json
 
 {
 	"username": "KoblaQ",
-	"name": "Kobla Quashigah"
+	"name": "Kobla Quashigah",
+	"password": "secret",
+	"admin": false
+}
+
+###
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+	"username": "EdemQ",
+	"name": "Edem Coder",
+	"password": "secret",
+	"admin": true
 }
 
 ###
@@ -22,9 +35,9 @@ POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-	"username": "KoblaQ",
-	"name": "Kobla Coder",
-	"password": "password"
+	"username": "EdemQ",
+	"name": "Edem Coder",
+	"password": "secret"
 
 }
 
@@ -35,6 +48,8 @@ Content-Type: application/json
 {
 	"username": "Pekka",
 	"name": "Pekka Pekkonen",
-	"password": "password"
+	"admin": false,
+	"disabled": true,
+	"password": "secret"
 
 }

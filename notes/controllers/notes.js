@@ -48,7 +48,7 @@ router.get('/', async (req, res) => {
   }
 
   const notes = await Note.findAll({
-    attributes: { exclude: ['userId'] },
+    attributes: { exclude: ['usern_id'] },
     include: {
       model: User,
       attributes: ['name'],
@@ -75,7 +75,7 @@ router.post('/', tokenExtractor, async (req, res) => {
     const note = await Note.create({
       ...req.body,
       date: new Date(),
-      userId: user.id,
+      usern_id: user.id,
     })
     res.json(note)
   } catch (error) {
@@ -94,7 +94,7 @@ router.delete('/:id', noteFinder, async (req, res) => {
 
 router.put('/:id', noteFinder, async (req, res) => {
   req.note.important = req.body.important
-  req.note.userId = req.body.userId
+  req.note.usern_id = req.body.usern_id
   req.note.content = req.body.content
   await req.note.save()
   res.json(req.note)

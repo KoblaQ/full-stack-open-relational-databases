@@ -8,11 +8,11 @@ router.get('/', async (req, res) => {
 
 router.post('/api/reset', async (req, res) => {
   try {
-    await User.destroy({
+    await Blog.destroy({
       truncate: true,
       cascade: true,
     })
-    await Blog.destroy({
+    await User.destroy({
       truncate: true,
       cascade: true,
     })

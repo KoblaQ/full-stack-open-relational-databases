@@ -28,7 +28,7 @@ Content-Type: application/json
 ###
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImthZnVpQG1haWwuY29tIiwiaWQiOjQsImlhdCI6MTc3NzMwMjI0Mn0.vY-_TEFpt48iKlkPqHL8udqJJUC9p2H2ey0MyjnNbZg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImthZnVpQG1haWwuY29tIiwiaWQiOjIsImlhdCI6MTc3NzM5NzQ4Nn0.5VwEQbtGniBj-QSrgZxFEUS9yaAd8ugzAMQMBd1updg
 
 {
 	"title": "This blog is about Edem",

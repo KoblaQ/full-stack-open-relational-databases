@@ -31,8 +31,24 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImthZnVpQG1haWwuY29tIiwiaWQiOjIsImlhdCI6MTc3NzM5NzQ4Nn0.5VwEQbtGniBj-QSrgZxFEUS9yaAd8ugzAMQMBd1updg
 
 {
-	"title": "This blog is about Edem",
+	"title": "This blog is about HAHAHA",
 	"url": "https://www.linkedin.com/in/edemq/",
-	"author": "Kobla Coder"
+	"author": "Kobla Coder",
+	"year": 2024
+	
+}
+
+
+###
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVkZW1AbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzc3NDgzNTQxfQ.mP-YXo0yt_xpX6moTnWpooXlG6xCCYAxEOzPIBR07cw
+
+{
+	"title": "This blog is about LOL",
+	"url": "https://www.linkedin.com/in/edemq/",
+	"author": "Kobla Coder",
+	"year": 2024
+	
 }
 

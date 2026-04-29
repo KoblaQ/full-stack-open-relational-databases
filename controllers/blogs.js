@@ -16,7 +16,12 @@ const blogFinder = async (req, res, next) => {
 
 // Errorhandler middleware
 const errorHandler = (error, request, response, next) => {
-  console.log(error.message)
+  if (error.name === 'SequelizeValidationError') {
+    return response
+      .status(400)
+      .json({ error: error.errors.map((err) => err.message) })
+  }
+  // console.log(error.message)
   next(error)
 }
 

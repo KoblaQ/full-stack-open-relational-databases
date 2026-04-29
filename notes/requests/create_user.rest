@@ -53,3 +53,16 @@ Content-Type: application/json
 	"password": "secret"
 
 }
+
+###
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+	"username": "Kafui",
+	"name": "Kafui Pekkonen",
+	"admin": true,
+	"disabled": false,
+	"password": "secret"
+
+}

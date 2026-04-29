@@ -22,6 +22,11 @@ Note.init(
     date: {
       type: DataTypes.DATE,
     },
+    usern_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: { model: 'userns', key: 'id' },
+    },
   },
   { sequelize, underscored: true, timestamps: false, modelName: 'note' },
 )

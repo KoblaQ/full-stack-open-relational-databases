@@ -34,7 +34,7 @@ Content-Type: application/json
 ###
 POST http://localhost:3001/api/notes
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IktvYmxhUSIsImlkIjoyLCJpYXQiOjE3NzcwNDU0NzZ9.KCNUo582HlE0k1CL1Kvi8vpdjrdduSkwUNiYlHxJnec
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkVkZW1RIiwiaWQiOjEsImlhdCI6MTc3NzQ2NDMyOH0.24QRlgB3KnoJ_JVGNPPy4vFKpJni-czsSls1CHjFWdc
 
 {
 	"content": "Postgresql is an open source database",

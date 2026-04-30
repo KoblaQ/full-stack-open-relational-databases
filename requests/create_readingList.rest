@@ -11,3 +11,13 @@ Content-Type: application/json
   "blogId": 6,
   "userId": 2
 }
+
+
+###
+PUT http://localhost:3001/api/readinglists/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVkZW1AbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzc3NTU4NDU1fQ.x4-3Ri-mVxOr93wzYbd_HWzLDqLxET_3eun0d7BIsKE
+
+{
+	"read": false
+}

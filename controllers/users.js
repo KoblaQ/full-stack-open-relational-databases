@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt')
 
 const router = require('express').Router()
+const { Op } = require('sequelize')
 
 const { User, Blog } = require('../models')
 
@@ -37,11 +38,17 @@ router.get('/', async (req, res) => {
 })
 
 // GET user by id
-router.get('/:id', async (req, res) => {
+// added query parameters in request
+
+router.get('/:id', async (req, res, next) => {
+  const where = {}
+
+  if (req.query.read) {
+    // console.log(req.query.read)
+    where.read = { [Op.eq]: req.query.read }
+  }
+
   try {
-    // const user = await User.findOne({
-    //   where: { username: req.params.username },
-    // })
     const user = await User.findByPk(req.params.id, {
       attributes: {
         exclude: ['id', 'passwordHash', 'createdAt', 'updatedAt'],
@@ -53,25 +60,12 @@ router.get('/:id', async (req, res) => {
           attributes: { exclude: ['createdAt', 'updatedAt', 'userId'] },
           through: {
             attributes: ['read', 'id'],
+            where, // filters the read or unread blogs from the list
           },
         },
       ],
+      // where
     })
-    // const user = await User.findByPk(req.params.id, {
-    //   attributes: {
-    //     exclude: ['id', 'passwordHash', 'createdAt', 'updatedAt'],
-    //   },
-    //   include: [
-    //     {
-    //       model: Blog,
-    //       as: 'read',
-    //       attributes: { exclude: ['createdAt', 'updatedAt', 'userId'] },
-    //       through: {
-    //         attributes: [],
-    //       },
-    //     },
-    //   ],
-    // })
 
     if (user) {
       res.json(user)

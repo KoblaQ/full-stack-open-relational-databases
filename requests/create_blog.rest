@@ -47,8 +47,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVkZ
 {
 	"title": "This blog is about LOL",
 	"url": "https://www.linkedin.com/in/edemq/",
-	"author": "Kobla Coder",
-	"year": 2024
+	"author": "Kobla Coder"
 	
 }
 

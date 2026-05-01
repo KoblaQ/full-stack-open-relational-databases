@@ -1,4 +1,6 @@
 const jwt = require('jsonwebtoken')
+const { Op } = require('sequelize')
+
 const { SECRET } = require('../util/config')
 const router = require('express').Router()
 
@@ -30,7 +32,6 @@ const tokenExtractor = (req, res, next) => {
 }
 
 // GET NOTES WITH QUERY PARAMETERS
-const { Op } = require('sequelize')
 
 router.get('/', async (req, res) => {
   const where = {}

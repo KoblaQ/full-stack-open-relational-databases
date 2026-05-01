@@ -1,8 +1,35 @@
-const { Model, DataTypes } = require('sequelize')
+const { Model, DataTypes, Op } = require('sequelize')
 
+const Note = require('./note')
 const { sequelize } = require('../util/db')
 
-class User extends Model {}
+class User extends Model {
+  // adding new methods to the User model
+
+  // instance method
+  async numberOfNotes() {
+    return (await this.getNotes()).length
+  }
+
+  // class method
+  static async withNotes(limit) {
+    return await User.findAll({
+      attributes: {
+        include: [
+          [sequelize.fn('COUNT', sequelize.col('notes.id')), 'note_count'],
+        ],
+      },
+      include: [
+        {
+          model: Note,
+          attributes: [],
+        },
+      ],
+      group: ['usern.id'],
+      having: sequelize.literal(`COUNT(notes.id) > ${limit}`),
+    })
+  }
+}
 
 User.init(
   {
@@ -34,6 +61,32 @@ User.init(
     underscored: true,
     timestamps: false,
     modelName: 'usern',
+    defaultScope: {
+      where: {
+        disabled: false,
+      },
+    },
+    scopes: {
+      admin: {
+        where: {
+          admin: true,
+        },
+      },
+      disabled: {
+        where: {
+          disabled: true,
+        },
+      },
+      name(value) {
+        return {
+          where: {
+            name: {
+              [Op.iLike]: value,
+            },
+          },
+        }
+      },
+    },
   },
 )
 

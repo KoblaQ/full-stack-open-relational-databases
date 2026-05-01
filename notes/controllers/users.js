@@ -21,6 +21,30 @@ router.get('/', async (req, res) => {
       },
     ],
   })
+
+  // const adminUsers = await User.scope('admin').findAll()
+
+  // const disabledUsers = await User.scope('disabled').findAll()
+
+  // const fuiUsers = await User.scope({ method: ['name', '%fui%'] }).findAll()
+  // // res.json(fuiUsers)
+
+  // // admins with the string jami in their name
+  // const jamiUsers = await User.scope('admin', {
+  //   method: ['name', '%jami%'],
+  // }).findAll()
+
+  // const edem = await User.findOne({ where: { name: 'Edem Coder' } })
+  const edem = await User.findByPk(1)
+  const cnt = await edem.numberOfNotes()
+  console.log(`Edem has created ${cnt} notes`)
+
+  const usersNotes = await User.withNotes(1)
+  console.log(JSON.stringify(usersNotes, null, 2))
+  usersNotes.forEach((u) => {
+    console.log(u.name)
+  })
+
   res.json(users)
 })
 
@@ -50,22 +74,41 @@ router.get('/:id', async (req, res) => {
         through: {
           attributes: [],
         },
-      },
-      {
-        model: Team,
-        attributes: ['name', 'id'],
-        through: {
-          attributes: [],
+        include: {
+          model: User,
+          attributes: ['name'],
         },
       },
+      // {
+      //   model: Team,
+      //   attributes: ['name', 'id'],
+      //   through: {
+      //     attributes: [],
+      //   },
+      // },
     ],
   })
 
-  if (user) {
-    res.json(user)
-  } else {
-    res.status(404).end()
+  // if (user) {
+  //   res.json(user)
+  // } else {
+  //   res.status(404).end()
+  // }
+
+  if (!user) {
+    return res.status(404).end()
   }
+
+  // Lazy loading of teams by the getTeams method
+  let teams = undefined
+  if (req.query.teams) {
+    teams = await user.getTeams({
+      attributes: ['name'],
+      joinTableAttributes: [],
+    })
+  }
+
+  res.json({ ...user.toJSON(), teams })
 })
 // router.get('/:id', async (req, res) => {
 //   const user = await User.findByPk(req.params.id)

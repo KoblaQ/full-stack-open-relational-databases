@@ -1,18 +1,15 @@
 const router = require('express').Router()
 const Session = require('../models/session')
-// const { tokenExtractor } = require('../util/middleware')
+const { tokenExtractor } = require('../util/middleware')
 
-router.delete('/', async (request, response) => {
+router.delete('/', tokenExtractor, async (request, response) => {
   try {
-    const session = await Session.findByPk(request.body.userId)
+    await Session.destroy({
+      where: { userId: request.decodedToken.id },
+    })
 
-    if (!session) {
-      return response.status(404).json({ error: 'Session not found' })
-    }
-
-    await session.destroy()
-
-    return response.status(204).json({ message: 'Logged out successfully' })
+    return response.status(204).end()
+    // json({ message: 'Logged out successfully' })
   } catch (error) {
     response.status(500).json({ error: error.message })
   }

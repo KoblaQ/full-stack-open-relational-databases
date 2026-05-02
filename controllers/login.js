@@ -40,19 +40,12 @@ router.post('/', async (request, response) => {
     return response.status(403).json({ error: 'User account disabled' })
   }
 
-  // Check for existing session and delete it
-  const existingSession = await Session.findByPk(user.id)
-
-  if (existingSession) {
-    await existingSession.destroy()
-  }
-
   // Create session
   const newSession = await Session.create({
     userId: user.id,
     token,
   })
-  request.session = newSession
+  request.token = newSession.token
 
   response.status(200).send({
     token,

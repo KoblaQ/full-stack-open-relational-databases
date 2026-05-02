@@ -16,6 +16,7 @@ module.exports = {
       blog_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        unique: true,
         references: { model: 'blogs', key: 'id' },
       },
     })

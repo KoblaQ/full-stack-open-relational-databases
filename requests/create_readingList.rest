@@ -8,8 +8,8 @@ POST http://localhost:3001/api/readinglists
 Content-Type: application/json
 
 {
-  "blogId": 6,
-  "userId": 2
+  "blogId": 27,
+  "userId": 16
 }
 
 

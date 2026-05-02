@@ -6,16 +6,14 @@ class Session extends Model {}
 
 Session.init(
   {
-    // id: {
-    //   type: DataTypes.INTEGER,
-    //   primaryKey: true,
-    //   autoIncrement: true,
-    // },
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true,
-      unique: true,
       references: { model: 'users', key: 'id' },
     },
     token: {

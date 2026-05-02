@@ -11,19 +11,21 @@ ReadingList.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    userId: {
+    user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: { model: 'users', key: 'id' },
     },
-    blogId: {
+    blog_id: {
       type: DataTypes.INTEGER,
+      unique: true,
       allowNull: false,
       references: { model: 'blogs', key: 'id' },
     },
     read: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
+      allowNull: false,
     },
   },
   {

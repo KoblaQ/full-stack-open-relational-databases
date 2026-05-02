@@ -22,17 +22,18 @@ POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-	"username": "KoblaQ",
-	"name": "Kobla Coder",
-	"password": "password"
+	"username": "fafa@mail.com",
+	"name": "Fafa Quashigah",
+	"password": "password",
+	"disabled": true
 
 }
 
 ###
-PUT http://localhost:3001/api/users/KoblaQ
+PUT http://localhost:3001/api/users/fafa@mail.com
 Content-Type: application/json
 
 {
-	"name": "Kobla Coder"
+	"disabled": true
 
 }

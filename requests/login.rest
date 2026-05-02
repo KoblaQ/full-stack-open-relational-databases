@@ -20,6 +20,24 @@ post http://localhost:3001/api/login
 Content-Type: application/json 
 
 {
+	"username": "fafa@mail.com",
+	"password": "password"
+}
+
+### 
+post http://localhost:3001/api/login 
+Content-Type: application/json 
+
+{
 	"username": "KoblaQ",
 	"password": "secret"
+}
+
+
+### 
+delete http://localhost:3001/api/logout 
+Content-Type: application/json 
+
+{
+	"userId": 2
 }

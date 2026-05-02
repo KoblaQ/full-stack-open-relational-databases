@@ -1,10 +1,12 @@
 const Blog = require('./blog')
 const User = require('./user')
 const ReadingList = require('./readingList')
+const Session = require('./session')
 
 // Make the relations
 User.hasMany(Blog)
 Blog.belongsTo(User)
+// Session.belongsTo(User)
 
 // User.sync({ alter: true })
 // Blog.sync({ alter: true })
@@ -16,4 +18,5 @@ module.exports = {
   Blog,
   User,
   ReadingList,
+  Session,
 }

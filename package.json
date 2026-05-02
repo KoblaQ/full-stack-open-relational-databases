@@ -17,7 +17,7 @@
   "scripts": {
     "start": "nodemon index.js",
     "migration:down": "node util/rollback.js",
-    "test": "node --test --test-concurrency=1 tests/api_ch3.test.js"
+    "test": "node --test --test-concurrency=1"
   },
   "dependencies": {
     "axios": "^1.15.2",

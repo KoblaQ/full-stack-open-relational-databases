@@ -4,6 +4,7 @@ const router = require('express').Router()
 
 const { SECRET } = require('../util/config')
 const User = require('../models/user')
+const Session = require('../models/session')
 
 router.post('/', async (request, response) => {
   const body = request.body
@@ -28,11 +29,37 @@ router.post('/', async (request, response) => {
   const userForToken = {
     username: user.username,
     id: user.id,
+    disabled: user.disabled,
   }
 
-  const token = jwt.sign(userForToken, SECRET)
+  const token = jwt.sign(userForToken, SECRET, { expiresIn: '5m' })
 
-  response.status(200).send({ token, username: user.username, name: user.name })
+  // Check if user is disabled
+
+  if (user.disabled === true) {
+    return response.status(403).json({ error: 'User account disabled' })
+  }
+
+  // Check for existing session and delete it
+  const existingSession = await Session.findByPk(user.id)
+
+  if (existingSession) {
+    await existingSession.destroy()
+  }
+
+  // Create session
+  const newSession = await Session.create({
+    userId: user.id,
+    token,
+  })
+  request.session = newSession
+
+  response.status(200).send({
+    token,
+    username: user.username,
+    name: user.name,
+    disabled: user.disabled,
+  })
 })
 
 module.exports = router

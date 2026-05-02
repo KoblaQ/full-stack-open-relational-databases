@@ -107,7 +107,8 @@ router.put('/:username', async (req, res, next) => {
     })
 
     if (user) {
-      user.name = req.body.name
+      // user.name = req.body.name
+      user.disabled = req.body.disabled
       const updatedUser = await user.save()
       res.json(updatedUser)
     } else {
